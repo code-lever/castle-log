@@ -1,7 +1,3 @@
-require "castle/log/version"
-
-module Castle
-  module Log
-    # Your code goes here...
-  end
-end
+require 'castle/log/file'
+require 'castle/log/session'
+require 'castle/log/version'
