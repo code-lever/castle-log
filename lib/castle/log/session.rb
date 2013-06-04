@@ -55,6 +55,7 @@ module Castle
       end
 
       def current
+        # FIXME current values seem pretty funky...
         @current ||= float_fields 'Current'
       end
 
