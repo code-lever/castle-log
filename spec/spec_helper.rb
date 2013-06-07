@@ -1,5 +1,7 @@
 require 'simplecov'
 require 'simplecov-gem-adapter'
+require 'simplecov-rcov'
+SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 SimpleCov.start 'gem' if ENV['COVERAGE']
 
 require 'pathname'
