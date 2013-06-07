@@ -1,3 +1,7 @@
+require 'simplecov'
+require 'simplecov-gem-adapter'
+SimpleCov.start 'gem' if ENV['COVERAGE']
+
 require 'pathname'
 require 'castle/log'
 
