@@ -14,6 +14,16 @@ module Castle
       # @return [Array<Session>] Sessions contained in this file
       attr_reader :sessions
 
+      # Determines if the file at the given URI is a Castle log file.  If one intends
+      # to read the file, simply using #new should be preferred in favor of this, catching any
+      # errors that may be raised.
+      #
+      # @param uri URI to file to read
+      # @return [Boolean] true if the file is a Castle log file, false otherwise
+      def self.castle? uri
+        !!File.new(uri) rescue false
+      end
+
       def initialize uri
         @sessions = []
 
