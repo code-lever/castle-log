@@ -14,6 +14,9 @@ module Castle
         @data = data
       end
 
+      # Gets the duration of the session, in seconds.
+      #
+      # @return [Float] duration of the session, in seconds
       def duration
         @duration ||= tick * @data.values[0].length
       end

@@ -10,6 +10,8 @@ describe Castle::Log::File do
 
       it { should have(1).sessions }
 
+      its(:duration) { should be_within(0.1).of(569.2) }
+
     end
 
     context 'data file multi-line-notes.csv' do
@@ -29,6 +31,8 @@ describe Castle::Log::File do
       subject { Castle::Log::File.new(data_file('multi-session-1.csv')) }
 
       it { should have(5).sessions }
+
+      its(:duration) { should be_within(0.1).of(945.0) }
 
       its(:notes) { should eql('Agri-duck 14 sep 12') }
 

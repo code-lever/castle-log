@@ -58,6 +58,13 @@ module Castle
         raise ArgumentError, 'File does not appear to be an Castle data log'
       end
 
+      # Gets the total duration of all sessions contained within.
+      #
+      # @return [Float] total duration of all sessions, in seconds
+      def duration
+        @sessions.map(&:duration).reduce(&:+)
+      end
+
       private
 
       def extract_sessions line_hash
@@ -69,8 +76,6 @@ module Castle
           reset = lines.select { |line| line.start_with?('# Reset Source') }
           tick = /Sample Time: (?<tick>\d+.\d+)/.match(start[0])[:tick].strip.to_f
           source = /\(Cause of reset\): (?<source>.*)/.match(reset[0])[:source].strip
-
-          # XXX can we use CSV for this instead?
 
           # strip out comment rows
           raw_rows = lines.reject { |line| line.start_with?('#') }
