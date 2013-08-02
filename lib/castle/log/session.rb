@@ -81,9 +81,12 @@ module Castle
         present? 'Speed'
       end
 
-      def speed
-        # FIXME need a pole count or something here
-        @speed ||= int_fields 'Speed'
+      # Gets the speed field values.
+      #
+      # @param [Float] factor value to multiply each speed by
+      # @return [Array] speed field values
+      def speed factor = 1.0
+        @speed ||= int_fields('Speed').map { |s| s * factor }
       end
 
       private

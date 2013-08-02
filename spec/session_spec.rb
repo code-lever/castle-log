@@ -89,9 +89,9 @@ describe Castle::Log::Session do
       its(:speed) { should have(2846).values }
 
       it 'should have some select speed values' do
-        subject.speed[0].should eql(0)
-        subject.speed[1250].should eql(91146)
-        subject.speed[2150].should eql(84366)
+        subject.speed(0.02)[0].should be_within(0.01).of(0.0)
+        subject.speed(0.02)[1250].should be_within(0.01).of(1822.92)
+        subject.speed(0.02)[2150].should be_within(0.01).of(1687.32)
       end
 
     end
