@@ -16,6 +16,14 @@ describe Castle::Log::Session do
 
       its(:duration) { should be_within(0.1).of(569.2) }
 
+      its(:milliseconds) { should have(2846).values }
+
+      it 'should have some select millisecond values' do
+        subject.milliseconds[0].should eql(0.0)
+        subject.milliseconds[1500].should eql(300000.0)
+        subject.milliseconds[2602].should eql(520400.0)
+      end
+
       its(:throttle?) { should be_true }
 
       its(:throttle) { should have(2846).values }

@@ -21,6 +21,15 @@ module Castle
         @duration ||= tick * @data.values[0].length
       end
 
+      # Gets an array of millisecond times that correspond to data points.
+      #
+      # @return [Array] millisecond times corresponding to data points
+      def milliseconds
+        count = @data.values[0].length
+        increment = tick * 1000.0
+        count.times.map { |i| i * increment }
+      end
+
       def throttle?
         present? 'Throttle'
       end
