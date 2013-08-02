@@ -25,9 +25,7 @@ module Castle
       #
       # @return [Array] millisecond times corresponding to data points
       def milliseconds
-        count = @data.values[0].length
-        increment = tick * 1000.0
-        count.times.map { |i| i * increment }
+        @milliseconds ||= build_milliseconds
       end
 
       def throttle?
@@ -89,6 +87,12 @@ module Castle
       end
 
       private
+
+      def build_milliseconds
+        count = @data.values[0].length
+        increment = tick * 1000.0
+        count.times.map { |i| i * increment }
+      end
 
       def present? name
         !@data[name].empty?
