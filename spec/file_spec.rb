@@ -89,6 +89,10 @@ describe Castle::Log::File do
       expect(Castle::Log::File.castle?(data_files[0])).to be_a(Castle::Log::File)
     end
 
+    it 'should return nil when invalid' do
+      expect(Castle::Log::File.castle?(invalid_data_files[0])).to be_nil
+    end
+
   end
 
 end
