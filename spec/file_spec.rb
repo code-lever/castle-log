@@ -21,7 +21,7 @@ describe Castle::Log::File do
       it { should have(1).sessions }
 
       it 'should have a multi-line note field' do
-        subject.notes.split("\n").should have(3).lines
+        expect(subject.notes.split("\n")).to have(3).lines
       end
 
     end
@@ -81,8 +81,12 @@ describe Castle::Log::File do
       files.should have(5).files
 
       files.each do |f|
-        Castle::Log::File.castle?(f).should be_true
+        expect(Castle::Log::File.castle?(f)).to be_true
       end
+    end
+
+    it 'should return a file object' do
+      expect(Castle::Log::File.castle?(data_files[0])).to be_a(Castle::Log::File)
     end
 
   end
