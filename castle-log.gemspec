@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["nick@codelever.com"]
   spec.description   = %q{Read and interpret Castle Creations data log files.}
   spec.summary       = %q{Castle Creations data log file reader}
-  spec.homepage      = ""
+  spec.homepage      = "http://github.com/code-lever/castle-log"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
