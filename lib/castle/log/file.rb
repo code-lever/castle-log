@@ -18,11 +18,11 @@ module Castle
       #
       # @param uri URI to file to read
       # @return [Castle::Log::File] loaded file if the file is a Castle log file, nil otherwise
-      def self.castle? uri
+      def self.castle?(uri)
         File.new(uri) rescue nil
       end
 
-      def initialize uri
+      def initialize(uri)
         @sessions = []
 
         open(uri, 'rb') do |file|
@@ -65,7 +65,7 @@ module Castle
 
       private
 
-      def extract_sessions line_hash
+      def extract_sessions(line_hash)
 
         keys = line_hash.keys.sort!
         keys.map do |session_index|

@@ -8,7 +8,7 @@ module Castle
 
       attr_reader :source
 
-      def initialize tick, source, data
+      def initialize(tick, source, data)
         @tick = tick
         @source = source
         @data = data
@@ -65,7 +65,6 @@ module Castle
       end
 
       def current
-        # FIXME current values seem pretty funky...
         @current ||= float_fields 'Current'
       end
 
@@ -85,7 +84,7 @@ module Castle
       #
       # @param [Float] factor value to multiply each speed by
       # @return [Array] speed field values
-      def speed factor = 1.0
+      def speed(factor = 1.0)
         @speed ||= int_fields('Speed').map { |s| s * factor }
       end
 
@@ -97,15 +96,15 @@ module Castle
         count.times.map { |i| i * increment }
       end
 
-      def present? name
+      def present?(name)
         !@data[name].empty?
       end
 
-      def int_fields name
+      def int_fields(name)
         @data[name].map(&:to_i)
       end
 
-      def float_fields name
+      def float_fields(name)
         @data[name].map(&:to_f)
       end
 
