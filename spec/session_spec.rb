@@ -24,7 +24,7 @@ describe Castle::Log::Session do
         subject.milliseconds[2602].should eql(520400.0)
       end
 
-      its(:throttle?) { should be_true }
+      its(:throttle?) { should be true }
 
       its(:throttle) { should have(2846).values }
 
@@ -34,7 +34,7 @@ describe Castle::Log::Session do
         subject.throttle[2602].should be_within(0.001).of(1.785)
       end
 
-      its(:power_out?) { should be_true }
+      its(:power_out?) { should be true }
 
       its(:power_out) { should have(2846).values }
 
@@ -44,7 +44,7 @@ describe Castle::Log::Session do
         subject.power_out[2345].should be_within(0.001).of(88.235)
       end
 
-      its(:voltage?) { should be_true }
+      its(:voltage?) { should be true }
 
       its(:voltage) { should have(2846).values }
 
@@ -54,7 +54,7 @@ describe Castle::Log::Session do
         subject.voltage[2350].should be_within(0.001).of(36.55)
       end
 
-      its(:ripple?) { should be_true }
+      its(:ripple?) { should be true }
 
       its(:ripple) { should have(2846).values }
 
@@ -64,7 +64,7 @@ describe Castle::Log::Session do
         subject.ripple[2152].should be_within(0.001).of(1.479)
       end
 
-      its(:current?) { should be_true }
+      its(:current?) { should be true }
 
       its(:current) { should have(2846).values }
 
@@ -74,7 +74,7 @@ describe Castle::Log::Session do
         subject.current[2160].should be_within(0.001).of(36.7)
       end
 
-      its(:temperature?) { should be_true }
+      its(:temperature?) { should be true }
 
       its(:temperature) { should have(2846).values }
 
@@ -84,7 +84,7 @@ describe Castle::Log::Session do
         subject.temperature[2504].should be_within(0.001).of(114.1)
       end
 
-      its(:speed?) { should be_true }
+      its(:speed?) { should be true }
 
       its(:speed) { should have(2846).values }
 

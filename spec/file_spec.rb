@@ -72,7 +72,7 @@ describe Castle::Log::File do
       files.should have(21).files
 
       files.each do |f|
-        Castle::Log::File.castle?(f).should be_false
+        Castle::Log::File.castle?(f).should be_falsey
       end
     end
 
@@ -81,7 +81,7 @@ describe Castle::Log::File do
       files.should have(5).files
 
       files.each do |f|
-        expect(Castle::Log::File.castle?(f)).to be_true
+        expect(Castle::Log::File.castle?(f)).to be_truthy
       end
     end
 
