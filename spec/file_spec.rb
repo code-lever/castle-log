@@ -8,7 +8,7 @@ describe Castle::Log::File do
 
       subject { Castle::Log::File.new(data_file('long-flight.csv')) }
 
-      it { should have(1).sessions }
+      it { is_expected.to have(1).sessions }
 
       its(:duration) { should be_within(0.1).of(569.2) }
 
@@ -18,7 +18,7 @@ describe Castle::Log::File do
 
       subject { Castle::Log::File.new(data_file('multi-line-notes.csv')) }
 
-      it { should have(1).sessions }
+      it { is_expected.to have(1).sessions }
 
       it 'should have a multi-line note field' do
         expect(subject.notes.split("\n")).to have(3).lines
@@ -30,7 +30,7 @@ describe Castle::Log::File do
 
       subject { Castle::Log::File.new(data_file('multi-session-1.csv')) }
 
-      it { should have(5).sessions }
+      it { is_expected.to have(5).sessions }
 
       its(:duration) { should be_within(0.1).of(945.0) }
 
@@ -42,7 +42,7 @@ describe Castle::Log::File do
 
       subject { Castle::Log::File.new(data_file('multi-session-2.csv')) }
 
-      it { should have(7).sessions }
+      it { is_expected.to have(7).sessions }
 
     end
 
@@ -50,13 +50,13 @@ describe Castle::Log::File do
 
       subject { Castle::Log::File.new(data_file('sample-1.csv')) }
 
-      it { should have(1).sessions }
+      it { is_expected.to have(1).sessions }
 
     end
 
     it 'should raise for invalid or missing files' do
       files = invalid_data_files
-      files.should have(21).files
+      expect(files).to have(21).files
 
       files.each do |f|
         expect { Castle::Log::File.new(f) }.to raise_error
@@ -69,16 +69,16 @@ describe Castle::Log::File do
 
     it 'should be false for invalid or missing files' do
       files = invalid_data_files
-      files.should have(21).files
+      expect(files).to have(21).files
 
       files.each do |f|
-        Castle::Log::File.castle?(f).should be_falsey
+        expect(Castle::Log::File.castle?(f)).to be_falsey
       end
     end
 
     it 'should be true for valid files' do
       files = data_files
-      files.should have(5).files
+      expect(files).to have(5).files
 
       files.each do |f|
         expect(Castle::Log::File.castle?(f)).to be_truthy
