@@ -1,4 +1,4 @@
-# Castle::Log [![Build Status](https://travis-ci.org/code-lever/castle-log.png)](https://travis-ci.org/code-lever/castle-log) [![Dependency Status](https://gemnasium.com/code-lever/castle-log.png)](https://gemnasium.com/code-lever/castle-log) [![Code Climate](https://codeclimate.com/github/code-lever/castle-log.png)](https://codeclimate.com/github/code-lever/castle-log)
+# Castle::Log [![Build Status](https://travis-ci.org/code-lever/castle-log.png)](https://travis-ci.org/code-lever/castle-log) [![Code Climate](https://codeclimate.com/github/code-lever/castle-log.png)](https://codeclimate.com/github/code-lever/castle-log)
 
 TODO: Write a gem description
 
